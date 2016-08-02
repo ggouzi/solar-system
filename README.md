@@ -7,6 +7,5 @@ test4
 test5
 
 http://138.68.132.208/Solar-System/solarSystem.html
-
-test6
-all works fine :) now !
+![alt text](screenshot.png "Description goes here")
+![alt text](screenshot.gif "Description goes here")

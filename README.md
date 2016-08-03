@@ -1,6 +1,6 @@
 # Solar-System
 
-A 3D animation of our solar system and all its planets with Three.js library
+A 3D animation of our solar system and all its planets with Three.js library<br/>
 Navigate between planets and realize how wide is our environment
 
 [Launch Demo](http://138.68.132.208/Solar-System/solarSystem.html)

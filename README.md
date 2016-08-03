@@ -16,8 +16,7 @@ Navigate between planets and realize how wide is our environment
 
 ##Features
 * Textures
-* Background with a Nebula
-* inclination Earth (23.5°)
+* Inclination Earth (23.5°)
 * Moon rotating around Earth
 * Realistic ratio between radius, revolution, orbit and distance from Sun
 * Modification of the animation speed

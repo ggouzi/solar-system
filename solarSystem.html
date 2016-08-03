@@ -90,10 +90,10 @@ window.onload = function() {
 				toGoZoom = toLeaveZoom/(new_radius/earthRadius);
 			  	deplace = true;
 
-			  	updateValueInputDatGui(listAstres[i].radius*realEarthRadius, textRadius, " km");
+			  	updateValueInputDatGui(listAstres[i].radius*realEarthRadius*coeffRadius, textRadius, " km");
 			  	updateValueInputDatGui(listAstres[i].revolution, textRevolution, " day(s)");
 			  	updateValueInputDatGui(listAstres[i].orbite, textOrbit, " day(s)");
-			  	updateValueInputDatGui(listAstres[i].distanceFromAstre*realEarthRadius, textDistance, " km");
+			  	updateValueInputDatGui(listAstres[i].distanceFromAstre*realEarthRadius*coeffDistances, textDistance, " km");
 
 			  	break;
 		    }

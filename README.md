@@ -12,7 +12,7 @@ Navigate between planets and realize how wide is our environment
 
 *Tested on firefox v48*
 
-![alt text](screencast/screencast.gif "ScreenCast")
+![alt text](screenshot/screenshot.gif "ScreenCast")
 
 ##Features
 * Textures

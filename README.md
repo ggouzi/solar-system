@@ -35,7 +35,7 @@ Navigate between planets and realize how wide is our environment
 * Zoom out until we see the whole milky way
 
 ## Licence
-This plugin is licensed under the GNU GPL v2. See GPL.txt for details.
+This project is licensed under the GNU GPL v2. See GPL.txt for details.
 
 ## Credits
 Earth Texture based on https://github.com/turban/webgl-earth

@@ -2,6 +2,7 @@
 
 A 3D animation of our solar system and all its planets with Three.js library
 Navigate between planets and realize how wide is our environment
+[Launch Demo](http://138.68.132.208/Solar-System/solarSystem.html)
 
 ## Dependencies
 - Three js for geometry animation https://github.com/mrdoob/three.js
@@ -10,7 +11,6 @@ Navigate between planets and realize how wide is our environment
 
 *Tested on firefox v48*
 
-Demo here: http://138.68.132.208/Solar-System/solarSystem.html
 ![alt text](screencast/screencast.gif "ScreenCast")
 
 ##Features

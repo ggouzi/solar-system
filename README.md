@@ -7,10 +7,11 @@ Navigate between planets and realize how wide is our environment
 - Three js for geometry animation https://github.com/mrdoob/three.js
 - dat.gui for creating a user interface (menu on top-right) https://github.com/dataarts/dat.gui
 - jquery
+
 *Tested on firefox v48*
 
 Demo here: http://138.68.132.208/Solar-System/solarSystem.html
-![alt text](screencast.gif "ScreenCast")
+![alt text](screencast/screencast.gif "ScreenCast")
 
 ##Features
 * Textures

@@ -8,7 +8,7 @@ Navigate between planets and realize how wide is our environment
 ## Dependencies
 - Three js for geometry animation https://github.com/mrdoob/three.js
 - dat.gui for creating a user interface (menu on top-right) https://github.com/dataarts/dat.gui
-- jquery
+- Jquery (1.12.4)
 
 *Tested on firefox v48*
 

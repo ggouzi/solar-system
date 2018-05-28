@@ -2,14 +2,14 @@
 
 /*    var sunMaterial = new THREE.ShaderMaterial( {
 
-    uniforms: { 
+    uniforms: {
         tExplosion: {
-            type: "t", 
+            type: "t",
             value: THREE.ImageUtils.loadTexture( 'images/explosion.png' )
         },
         time: { // float initialized to 0
-            type: "f", 
-            value: 0.0 
+            type: "f",
+            value: 0.0
         },
         grow: {
         	type: "f",
@@ -18,7 +18,7 @@
     },
     vertexShader: document.getElementById( 'vertexShader' ).textContent,
     fragmentShader: document.getElementById( 'fragmentShader' ).textContent
-    
+
 });*/
 	(function () {
 
@@ -68,7 +68,7 @@
 	controls.minDistance = 3; // Set max zoom
 	controls.maxDistance = 500; // Set min zoom
 	camera.zoom = 30;
-    
+
     var earth = createEarth(earthRadius, segments);
 	scene.add(earth)
 	listAstres.push({nom: 'earth', astre: earth, radius: earthRadius, realRadius: realEarthRadius, revolution: revolEarth, orbite: realOrbiteEarth, distanceFromAstre: distanceEarthSun, realDistanceFromAstre: realDistanceEarthSun, angle: 0, clockwise: clockWiseEarth});
@@ -134,7 +134,7 @@
 
     	//sunMaterial.uniforms[ 'time' ].value = 0.00001 * ( Date.now() - start )*timeSpeed;
 		controls.update();
-		for (var i = 0; i < listAstres.length; i++) { 
+		for (var i = 0; i < listAstres.length; i++) {
 		    var j = listAstres[i];
 		    var clockWise = j.clockwise==true?1:-1;
         	j.astre.rotation.y += clockWise*timeSpeed*Math.PI * (revolEarth/j.revolution)/180;
@@ -180,7 +180,7 @@ function createEarth(radius, segments) {
 				bumpMap:     new THREE.TextureLoader().load('images/bump.jpg'),
 				bumpScale:   0.005,
 				specularMap: new THREE.TextureLoader().load('images/water.png'),
-				specular:    new THREE.Color('grey')								
+				specular:    new THREE.Color('grey')
 			})
 		);
 	}
@@ -188,9 +188,9 @@ function createEarth(radius, segments) {
 function createPlanet(nom, radius, realRadius, orbite, revolution, distaneFromSun, realDistanceFromAstre, clockWiseRotation, texture)
 {
 	var planet = new THREE.Mesh(
-					new THREE.SphereGeometry(radius, segments, segments), 
+					new THREE.SphereGeometry(radius, segments, segments),
 					new THREE.MeshPhongMaterial({
-						map:         new THREE.TextureLoader().load('images/'+texture)					
+						map:         new THREE.TextureLoader().load('images/'+texture)
 					})
 				);
 	var d = distanceEarthSun-distaneFromSun;
@@ -205,7 +205,7 @@ function createMoon(radius, segments) {
 		new THREE.SphereGeometry(radius, segments, segments),
 		new THREE.MeshPhongMaterial({
 			map:         new THREE.TextureLoader().load('images/moon.jpg'),
-			bumpScale:   0.005							
+			bumpScale:   0.005
 		})
 	);
 }
@@ -215,7 +215,7 @@ function createSun(radius, segments) {
 		new THREE.SphereGeometry(radius, segments, segments),
 		new THREE.MeshPhongMaterial({
 			map:         new THREE.TextureLoader().load('images/sun.jpg'),
-			bumpScale:   0.005								
+			bumpScale:   0.005
 		})
 	);
 }
@@ -223,7 +223,7 @@ function createSun(radius, segments) {
 
 function createClouds(radius, segments) {
 	return new THREE.Mesh(
-		new THREE.SphereGeometry(radius + 0.003, segments, segments),			
+		new THREE.SphereGeometry(radius + 0.003, segments, segments),
 		new THREE.MeshPhongMaterial({
 			map:         new THREE.TextureLoader().load('images/clouds.png'),
 			transparent: true
@@ -233,9 +233,9 @@ function createClouds(radius, segments) {
 
 function createStars(radius, segments) {
 	return new THREE.Mesh(
-		new THREE.SphereGeometry(radius, segments, segments), 
+		new THREE.SphereGeometry(radius, segments, segments),
 		new THREE.MeshBasicMaterial({
-			map:  new THREE.TextureLoader().load('images/background.png'), 
+			map:  new THREE.TextureLoader().load('images/background.png'),
 			side: THREE.BackSide
 		})
 	);
@@ -243,9 +243,9 @@ function createStars(radius, segments) {
 
 function createRedDwarf(radius, x, y, z)
 {
-    var mesh = new THREE.Mesh( 
-        new THREE.SphereGeometry(radius, 64, 64), 
-        sunMaterial 
+    var mesh = new THREE.Mesh(
+        new THREE.SphereGeometry(radius, 64, 64),
+        sunMaterial
     );
     mesh.position.set(x,y,z);
 	return mesh;
@@ -279,8 +279,5 @@ function updateRadius()
     for (var j = 0; j < listAstres.length; j++)
   	{
 	    listAstres[j].radius = listAstres[j].realRadius/realEarthRadius/coeffRadius;
-	}	
+	}
 }
-
-
-

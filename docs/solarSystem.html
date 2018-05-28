@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Solar System</title>
+	<style>
+		body { margin: 0; overflow: hidden; background-color: #000; }
+		.tm  { position: absolute; top: 10px; right: 10px; }
+		.webgl-error { font: 15px/30px monospace; text-align: center; color: #fff; margin: 50px; }
+		.webgl-error a { color: #fff; }
+    </style>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script type='text/javascript' src='js/dat.gui.js'></script>
+<script src="js/three.js"></script>
+<script src="js/initConst.js"></script>
+<script src="js/orbitControls.js"></script>
+
+<script>
+
+var timeSpeed = 5;
+var planetFocus="Earth";
+var deplace = false;
+var radiusPlanetFocus = realEarthRadius+" km";
+var revolPlanetFocus = revolEarth + " day(s)";
+var orbitPlanetFocus = realOrbiteEarth+" day(s)";
+var distancePlanetFocus = realDistanceEarthSun+" km";
+var nbDays = 1;
+var oGo, toLeave, toLeaveZoom, toGoZoom, new_radius;
+var start = Date.now();
+let scene = new THREE.Scene();
+
+
+var Data = function() {
+	this.NbDays = nbDays;
+  this.Speed = timeSpeed;
+/*  this.CoeffDistances = coeffDistances;
+  this.CoeffRadius = coeffRadius;*/
+  this.Planet = planetFocus;
+  this.Radius = radiusPlanetFocus;
+  this.Revolution = revolPlanetFocus;
+  this.Orbit = orbitPlanetFocus;
+  this.DistanceToSun = distancePlanetFocus;
+};
+
+window.onload = function() {
+  var data = new Data();
+  var gui = new dat.GUI( );
+
+  var nbDays = gui.add(data, 'NbDays');
+  /*var coeffDistannceGUI = gui.add(data, 'CoeffDistances', 1, 10);
+  var coeffRadiusGUI = gui.add(data, 'CoeffRadius', 1, 10);
+
+  coeffDistannceGUI.onChange(function(newValue)
+  { 
+	coeffDistances = newValue;
+	updateDistances();
+  });
+  
+  coeffRadiusGUI.onChange(function(newValue)
+  { 
+	coeffRadius = newValue;
+	updateRadius();
+  });*/
+  var speed = gui.add(data, 'Speed', 0, 20);
+  speed.onChange(function(newValue)
+  { 
+	timeSpeed = newValue;
+  });
+
+  var textRadius = 'Radius';
+  var textRevolution = 'Revolution';
+  var textOrbit = 'Orbit';
+  var textDistance = 'DistanceToSun';
+
+	var planetFocus = gui.add(data, 'Planet', [ 'Earth', 'Mercure', 'Venus', 'Mars', 'Jupiter' ] );
+	var infos = gui.addFolder('Infos');
+	planetFocus.onChange(function(newValue)
+	{ 
+	  	planetFocus = newValue;
+	  	for (var i = 0; i < listAstres.length; i++)
+	  	{
+		    if(listAstres[i].nom==planetFocus.toLowerCase() )
+		    {
+			  	toGo = listAstres[i].astre.position;
+				toLeave = controls.target;
+				toLeaveZoom = camera.zoom;
+				new_radius = listAstres[i].radius;
+				toGoZoom = toLeaveZoom/(new_radius/earthRadius);
+			  	deplace = true;
+
+			  	updateValueInputDatGui(listAstres[i].radius*realEarthRadius*coeffRadius, textRadius, " km");
+			  	updateValueInputDatGui(listAstres[i].revolution, textRevolution, " day(s)");
+			  	updateValueInputDatGui(listAstres[i].orbite, textOrbit, " day(s)");
+			  	updateValueInputDatGui(listAstres[i].distanceFromAstre*realEarthRadius*coeffDistances, textDistance, " km");
+
+			  	break;
+		    }
+		}
+		infos.open();
+	});
+
+var radius = infos.add(data, textRadius);
+var revolution = infos.add(data, textRevolution);
+var orbit = infos.add(data, textOrbit);
+var distanceFromSun = infos.add(data, textDistance);
+infos.open();
+
+
+$('input').attr("disabled", "disabled");
+};
+
+function updateValueInputDatGui(newInput, labelText, units)
+{
+	$("span:contains('"+labelText+"')").next('div').find('input').val((Math.round(newInput * 100) / 100)+units);
+}
+
+</script>
+
+</head>
+<body>
+	<div id="webgl">
+	</div>
+	
+	<script src="js/Detector.js"></script>			
+	<script src="js/planetMovments.js"></script>
+</body>
+</html>

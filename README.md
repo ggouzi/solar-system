@@ -2,14 +2,12 @@
 
 ## Purpose
 A 3D animation of our solar system and all its planets with Three.js library<br/>
-Navigate between planets and realize how wide is our environment
-
-[Launch Demo](http://138.68.132.208/Solar-System/solarSystem.html)
+Navigate between planets and realize how wide is our Solar System
 
 ## Dependencies
 * [ThreeJS](https://github.com/mrdoob/three.js) - 3D animation API
 * [dat.gui](https://github.com/dataarts/dat.gui) - Controller for User Interface
-* Jquery (1.12.4)
+* Jquery (3.3.1)
 
 ![alt text](screenshot/screenshot.gif "ScreenCast")
 

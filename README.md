@@ -1,4 +1,5 @@
 # Solar-System
+NOT MAINTAINED
 
 ## Purpose
 A 3D animation of our solar system and all its planets with Three.js library<br/>
